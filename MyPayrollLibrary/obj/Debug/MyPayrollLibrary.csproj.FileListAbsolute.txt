@@ -1,0 +1,6 @@
+D:\hemanth\MyPayrollLibrary\bin\Debug\MyPayrollLibrary.dll
+D:\hemanth\MyPayrollLibrary\bin\Debug\MyPayrollLibrary.pdb
+D:\hemanth\MyPayrollLibrary\obj\Debug\MyPayrollLibrary.dll
+D:\hemanth\MyPayrollLibrary\obj\Debug\MyPayrollLibrary.pdb
+D:\hemanth\MyPayrollLibrary\bin\Debug\MyPayrollLibrary.dll.config
+D:\hemanth\MyPayrollLibrary\obj\Debug\MyPayrollLibrary.csprojResolveAssemblyReference.cache

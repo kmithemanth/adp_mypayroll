@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 27, 16.25" name="MyPayRollDA">
+  <DataContextMoniker Name="/MyPayRollDADataContext" />
+  <nestedChildShapes>
+    <classShape Id="0390e49e-47c2-4208-af48-7ec47d0c62b4" absoluteBounds="0.625, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/MyPayRollDADataContext/Appointment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3224a806-175d-4104-b14c-f1f216d203d8" absoluteBounds="0.64, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbe2fdf2-3ee6-4797-b7a0-9cb80e4b2198" absoluteBounds="3.875, 0.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/MyPayRollDADataContext/BusinessUnit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="496aa4ec-ce47-4b85-84fb-c15f3ca28fdf" absoluteBounds="3.89, 1.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ac3ff6b7-e6ad-4135-b3e3-d0c0ab4ebece" absoluteBounds="7.125, 0.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/MyPayRollDADataContext/Deduction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="614698ca-35e9-4f11-b09a-1a87dc6e492a" absoluteBounds="7.14, 1.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8f3d9c9c-9d32-4898-9ebf-58abb85da3de" absoluteBounds="11.625, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/MyPayRollDADataContext/Earning" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4152b2ff-3c4a-44c4-ae28-521dc779ad1e" absoluteBounds="11.64, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="df3b8983-a213-46e2-a0bf-cf5aeed8a8bf" absoluteBounds="0.875, 5.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/MyPayRollDADataContext/EeDedResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b695bed4-686f-4bd4-8268-a50f7dc2ba79" absoluteBounds="0.89, 5.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="35eadd91-700e-4870-8b9f-9ef59f2053bf" absoluteBounds="4.625, 5.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/MyPayRollDADataContext/EeDeduction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ed1bc94-f802-4e46-98a8-c29cf89f62f8" absoluteBounds="4.64, 5.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.625 : 6.35659912109375); (4.30208333333333 : 6.35659912109375 : JumpStart); (4.13541666666667 : 6.35659912109375 : JumpEnd); (2.875 : 6.35659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/EeDeduction/EeDeduction_EeDedResult" />
+      <nodes>
+        <classShapeMoniker Id="35eadd91-700e-4870-8b9f-9ef59f2053bf" />
+        <classShapeMoniker Id="df3b8983-a213-46e2-a0bf-cf5aeed8a8bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.125 : 2.90549967447917); (8.125 : 6.35659912109375); (6.625 : 6.35659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/Deduction/Deduction_EeDeduction" />
+      <nodes>
+        <classShapeMoniker Id="ac3ff6b7-e6ad-4135-b3e3-d0c0ab4ebece" />
+        <classShapeMoniker Id="35eadd91-700e-4870-8b9f-9ef59f2053bf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f49d8cde-e31e-4133-8fed-be7c6f6b9727" absoluteBounds="9.5, 5.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/MyPayRollDADataContext/EeEarning" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83ea8f23-6265-4bb4-88f1-118932e4d61b" absoluteBounds="9.515, 5.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.625 : 2.8381982421875); (12.625 : 6.48159912109375); (11.5 : 6.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/Earning/Earning_EeEarning" />
+      <nodes>
+        <classShapeMoniker Id="8f3d9c9c-9d32-4898-9ebf-58abb85da3de" />
+        <classShapeMoniker Id="f49d8cde-e31e-4133-8fed-be7c6f6b9727" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="87bd4105-f0f9-4262-879d-28bfe070aa4c" absoluteBounds="14.25, 5.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/MyPayRollDADataContext/EeEarnResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b54df20-ac2a-4e7e-b6ba-b0998646c97c" absoluteBounds="14.265, 6.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5 : 7.03489868164062); (14.25 : 7.03489868164062)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/EeEarning/EeEarning_EeEarnResult" />
+      <nodes>
+        <classShapeMoniker Id="f49d8cde-e31e-4133-8fed-be7c6f6b9727" />
+        <classShapeMoniker Id="87bd4105-f0f9-4262-879d-28bfe070aa4c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="35a29235-534b-4e7b-b6c1-0c1ff9c665e1" absoluteBounds="17.5, 1.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/MyPayRollDADataContext/EeTaxResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="76a5baae-ae68-4412-9d5b-9be988d67ed6" absoluteBounds="17.515, 2.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="159e998e-fbcf-44f0-988d-aad7dc0e10fa" absoluteBounds="18.75, 6.25, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/MyPayRollDADataContext/EmployeeInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5bfbccc2-1633-416c-9ad7-58e3e720892d" absoluteBounds="18.765, 6.71, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(20.15625 : 6.25); (20.15625 : 0.53125); (2.625 : 0.53125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/EmployeeInfo/EmployeeInfo_Appointment" />
+      <nodes>
+        <classShapeMoniker Id="159e998e-fbcf-44f0-988d-aad7dc0e10fa" />
+        <classShapeMoniker Id="0390e49e-47c2-4208-af48-7ec47d0c62b4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(18.75 : 8.95595540364583); (17.4270833333333 : 8.95595540364583 : JumpStart); (17.2604166666667 : 8.95595540364583 : JumpEnd); (5.625 : 8.95595540364583); (5.625 : 7.3381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/EmployeeInfo/EmployeeInfo_EeDeduction" />
+      <nodes>
+        <classShapeMoniker Id="159e998e-fbcf-44f0-988d-aad7dc0e10fa" />
+        <classShapeMoniker Id="35eadd91-700e-4870-8b9f-9ef59f2053bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(18.75 : 8.4307250390625); (17.4270833333333 : 8.4307250390625 : JumpStart); (17.2604166666667 : 8.4307250390625 : JumpEnd); (10.5 : 8.4307250390625); (10.5 : 7.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/EmployeeInfo/EmployeeInfo_EeEarning" />
+      <nodes>
+        <classShapeMoniker Id="159e998e-fbcf-44f0-988d-aad7dc0e10fa" />
+        <classShapeMoniker Id="f49d8cde-e31e-4133-8fed-be7c6f6b9727" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(19.125 : 6.25); (19.125 : 3.7131982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/EmployeeInfo/EmployeeInfo_EeTaxResult" />
+      <nodes>
+        <classShapeMoniker Id="159e998e-fbcf-44f0-988d-aad7dc0e10fa" />
+        <classShapeMoniker Id="35a29235-534b-4e7b-b6c1-0c1ff9c665e1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="8d4b66c4-f3ae-4f49-8430-c3c63caf4898" absoluteBounds="24.375, 12.875, 2, 3.1170068359375">
+      <DataClassMoniker Name="/MyPayRollDADataContext/Employer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6984da16-1a86-4f44-b2a0-09d3c3eb6d38" absoluteBounds="24.39, 13.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eba9d32d-92bf-4d0d-9929-a35ce00a7145" absoluteBounds="24.75, 3.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/MyPayRollDADataContext/Employment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7fbf7937-f209-4570-9046-40778e14c1df" absoluteBounds="24.765, 4.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(24.75 : 6.59215413411458); (20.75 : 6.59215413411458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/Employment/Employment_EmployeeInfo" />
+      <nodes>
+        <classShapeMoniker Id="eba9d32d-92bf-4d0d-9929-a35ce00a7145" />
+        <classShapeMoniker Id="159e998e-fbcf-44f0-988d-aad7dc0e10fa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(25.65625 : 12.875); (25.65625 : 6.93430826822917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/Employer/Employer_Employment" />
+      <nodes>
+        <classShapeMoniker Id="8d4b66c4-f3ae-4f49-8430-c3c63caf4898" />
+        <classShapeMoniker Id="eba9d32d-92bf-4d0d-9929-a35ce00a7145" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="25150724-7ac3-47e2-ad3d-cc4ebb9f805c" absoluteBounds="22.875, 9.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/MyPayRollDADataContext/Job" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7afed2c-3a1e-4bff-a3e0-37eb267b70fb" absoluteBounds="22.89, 10.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb28681b-93d8-40f1-b826-5237c2ecee79" absoluteBounds="14.375, 1.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/MyPayRollDADataContext/PayCalendar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d113e742-a223-479b-bec7-43dbc38e5c86" absoluteBounds="14.39, 2.2100000000000009, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(16.34375 : 4.2901025390625); (16.34375 : 5.28125); (15.3958333333333 : 5.28125 : JumpStart); (15.2291666666667 : 5.28125 : JumpEnd); (12.7083333333333 : 5.28125 : JumpStart); (12.5416666666667 : 5.28125 : JumpEnd); (8.20833333333333 : 5.28125 : JumpStart); (8.04166666666667 : 5.28125 : JumpEnd); (4.30208333333333 : 5.28125 : JumpStart); (4.13541666666667 : 5.28125 : JumpEnd); (2.875 : 5.28125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/PayCalendar/PayCalendar_EeDedResult" />
+      <nodes>
+        <classShapeMoniker Id="bb28681b-93d8-40f1-b826-5237c2ecee79" />
+        <classShapeMoniker Id="df3b8983-a213-46e2-a0bf-cf5aeed8a8bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(15.3125 : 4.2901025390625); (15.3125 : 5.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/PayCalendar/PayCalendar_EeEarnResult" />
+      <nodes>
+        <classShapeMoniker Id="bb28681b-93d8-40f1-b826-5237c2ecee79" />
+        <classShapeMoniker Id="87bd4105-f0f9-4262-879d-28bfe070aa4c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.375 : 2.73159912109375); (17.2604166666667 : 2.73159912109375 : JumpStart); (17.4270833333333 : 2.73159912109375 : JumpEnd); (17.5 : 2.73159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/PayCalendar/PayCalendar_EeTaxResult" />
+      <nodes>
+        <classShapeMoniker Id="bb28681b-93d8-40f1-b826-5237c2ecee79" />
+        <classShapeMoniker Id="35a29235-534b-4e7b-b6c1-0c1ff9c665e1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cd57da25-f212-4550-81f5-6d5c880a619a" absoluteBounds="17.25, 12.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/MyPayRollDADataContext/Position" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1664070f-c233-4a0a-9c8e-c81bcefaad22" absoluteBounds="17.265, 13.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(17.34375 : 12.875); (17.34375 : 0.546875); (2.625 : 0.546875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/Position/Position_Appointment" />
+      <nodes>
+        <classShapeMoniker Id="cd57da25-f212-4550-81f5-6d5c880a619a" />
+        <classShapeMoniker Id="0390e49e-47c2-4208-af48-7ec47d0c62b4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.21875 : 2.5881982421875); (4.21875 : 13.9527498372396); (17.25 : 13.9527498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/BusinessUnit/BusinessUnit_Position" />
+      <nodes>
+        <classShapeMoniker Id="dbe2fdf2-3ee6-4797-b7a0-9cb80e4b2198" />
+        <classShapeMoniker Id="cd57da25-f212-4550-81f5-6d5c880a619a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(22.875 : 10.5713525390625); (18.0468775 : 10.5713525390625); (18.0468775 : 12.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/MyPayRollDADataContext/Job/Job_Position" />
+      <nodes>
+        <classShapeMoniker Id="25150724-7ac3-47e2-ad3d-cc4ebb9f805c" />
+        <classShapeMoniker Id="cd57da25-f212-4550-81f5-6d5c880a619a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MyPayRoll" Class="MyPayRollDADataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=MyPayRoll;User ID=db_hd" SettingsObjectName="MyPayrollLibrary.Properties.Settings" SettingsPropertyName="MyPayRollConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Appointment" Member="Appointments">
+    <Type Name="Appointment">
+      <Column Name="EmployeeCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ApptNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="apptStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ApptEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BuCode" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="JobCode" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="PosnId" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ReportsTo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="EmployeeInfo_Appointment" Member="EmployeeInfo" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="EmployeeInfo" IsForeignKey="true" />
+      <Association Name="Position_Appointment" Member="Position" ThisKey="BuCode,JobCode,PosnId" OtherKey="BuCode,JobCode,PosnId" Type="Position" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BusinessUnit" Member="BusinessUnits">
+    <Type Name="BusinessUnit">
+      <Column Name="BuCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BuName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="BuEffectiveFrom" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="BuEffectiveTo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BuType" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="BuParent" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="BusinessUnit_Position" Member="Positions" ThisKey="BuCode" OtherKey="BuCode" Type="Position" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Deduction" Member="Deductions">
+    <Type Name="Deduction">
+      <Column Name="DedCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DedDesc" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DedStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DedEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EeErCode" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="DedTaxability" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DedDfltAmt" Type="System.Decimal" DbType="Decimal(8,3) NOT NULL" CanBeNull="false" />
+      <Association Name="Deduction_EeDeduction" Member="EeDeductions" ThisKey="DedCode" OtherKey="DedCode" Type="EeDeduction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Earning" Member="Earnings">
+    <Type Name="Earning">
+      <Column Name="EarnCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EarnDesc" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="EarnStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EarnEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EarnTaxability" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="EarnDfltAmt" Type="System.Decimal" DbType="Decimal(8,3) NOT NULL" CanBeNull="false" />
+      <Association Name="Earning_EeEarning" Member="EeEarnings" ThisKey="EarnCode" OtherKey="EarnCode" Type="EeEarning" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EeDedResult" Member="EeDedResults">
+    <Type Name="EeDedResult">
+      <Column Name="EmployeeCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PayFrequency" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaxYear" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PayPeriodNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DedCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EeDedAmt" Type="System.Decimal" DbType="Decimal(13,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DedTaxability" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="EeDeduction_EeDedResult" Member="EeDeduction" ThisKey="EmployeeCode,DedCode" OtherKey="EmployeeCode,DedCode" Type="EeDeduction" IsForeignKey="true" />
+      <Association Name="PayCalendar_EeDedResult" Member="PayCalendar" ThisKey="PayFrequency,TaxYear,PayPeriodNo" OtherKey="PayFrequency,TaxYear,PayPeriodNo" Type="PayCalendar" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EeDeduction" Member="EeDeductions">
+    <Type Name="EeDeduction">
+      <Column Name="EmployeeCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DedCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EeDedStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EeDedEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EeDedStatusCode" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="EeDedDfltAmt" Type="System.Decimal" DbType="Decimal(8,3) NOT NULL" CanBeNull="false" />
+      <Association Name="EeDeduction_EeDedResult" Member="EeDedResults" ThisKey="EmployeeCode,DedCode" OtherKey="EmployeeCode,DedCode" Type="EeDedResult" />
+      <Association Name="Deduction_EeDeduction" Member="Deduction" ThisKey="DedCode" OtherKey="DedCode" Type="Deduction" IsForeignKey="true" />
+      <Association Name="EmployeeInfo_EeDeduction" Member="EmployeeInfo" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="EmployeeInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EeEarning" Member="EeEarnings">
+    <Type Name="EeEarning">
+      <Column Name="EmployeeCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EarnCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EeEarnStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EeEarnEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EeEarnStatusCode" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="EeEarnDfltAmt" Type="System.Decimal" DbType="Decimal(8,3) NOT NULL" CanBeNull="false" />
+      <Association Name="EeEarning_EeEarnResult" Member="EeEarnResults" ThisKey="EmployeeCode,EarnCode" OtherKey="EmployeeCode,EarnCode" Type="EeEarnResult" />
+      <Association Name="Earning_EeEarning" Member="Earning" ThisKey="EarnCode" OtherKey="EarnCode" Type="Earning" IsForeignKey="true" />
+      <Association Name="EmployeeInfo_EeEarning" Member="EmployeeInfo" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="EmployeeInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EeEarnResult" Member="EeEarnResults">
+    <Type Name="EeEarnResult">
+      <Column Name="EmployeeCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PayFrequency" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaxYear" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PayPeriodNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EarnCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EeEarnAmt" Type="System.Decimal" DbType="Decimal(13,2) NOT NULL" CanBeNull="false" />
+      <Column Name="EarnTaxability" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="EeEarning_EeEarnResult" Member="EeEarning" ThisKey="EmployeeCode,EarnCode" OtherKey="EmployeeCode,EarnCode" Type="EeEarning" IsForeignKey="true" />
+      <Association Name="PayCalendar_EeEarnResult" Member="PayCalendar" ThisKey="PayFrequency,TaxYear,PayPeriodNo" OtherKey="PayFrequency,TaxYear,PayPeriodNo" Type="PayCalendar" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EeTaxResult" Member="EeTaxResults">
+    <Type Name="EeTaxResult">
+      <Column Name="EmployeeCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PayFrequency" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaxYear" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PayPeriodNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaxableWage_amt" Type="System.Decimal" DbType="Decimal(13,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TaxAmt" Type="System.Decimal" DbType="Decimal(13,2) NOT NULL" CanBeNull="false" />
+      <Association Name="EmployeeInfo_EeTaxResult" Member="EmployeeInfo" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="EmployeeInfo" IsForeignKey="true" />
+      <Association Name="PayCalendar_EeTaxResult" Member="PayCalendar" ThisKey="PayFrequency,TaxYear,PayPeriodNo" OtherKey="PayFrequency,TaxYear,PayPeriodNo" Type="PayCalendar" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmployeeInfo" Member="EmployeeInfos">
+    <Type Name="EmployeeInfo">
+      <Column Name="EmployeeCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MartialStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Nationality" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="AddLn1" Type="System.String" DbType="VarChar(44) NOT NULL" CanBeNull="false" />
+      <Column Name="AddLn2" Type="System.String" DbType="VarChar(44)" CanBeNull="true" />
+      <Column Name="Town" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PostCode" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="EmployeeInfo_Appointment" Member="Appointments" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="Appointment" />
+      <Association Name="EmployeeInfo_EeDeduction" Member="EeDeductions" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="EeDeduction" />
+      <Association Name="EmployeeInfo_EeEarning" Member="EeEarnings" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="EeEarning" />
+      <Association Name="EmployeeInfo_EeTaxResult" Member="EeTaxResults" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="EeTaxResult" />
+      <Association Name="Employment_EmployeeInfo" Member="Employment" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="Employment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employer" Member="Employers">
+    <Type Name="Employer">
+      <Column Name="EmployerCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployerName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ErStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ErEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ErAddLn1" Type="System.String" DbType="VarChar(44) NOT NULL" CanBeNull="false" />
+      <Column Name="ErAddLn2" Type="System.String" DbType="VarChar(44)" CanBeNull="true" />
+      <Column Name="ErAddLn3" Type="System.String" DbType="VarChar(44)" CanBeNull="true" />
+      <Column Name="ErTown" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ErState" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ErCountry" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ErPostCode" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="ErPhone" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Employer_Employment" Member="Employments" ThisKey="EmployerCode" OtherKey="EmployerCode" Type="Employment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employment" Member="Employments">
+    <Type Name="Employment">
+      <Column Name="EmployeeCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployerCode" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="EmplHireDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EmplTermDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EeStatus" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="FullPartTime" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PermanentTemp" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="LeavingReason" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="NoticePeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoticePeriodUnit" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ProbPeriod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProbPeriodUnit" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PayFrequency" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Employment_EmployeeInfo" Member="EmployeeInfo" ThisKey="EmployeeCode" OtherKey="EmployeeCode" Type="EmployeeInfo" Cardinality="One" />
+      <Association Name="Employer_Employment" Member="Employer" ThisKey="EmployerCode" OtherKey="EmployerCode" Type="Employer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Job" Member="Jobs">
+    <Type Name="Job">
+      <Column Name="JobCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="JobTitle" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="JobDescription" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Job_Position" Member="Positions" ThisKey="JobCode" OtherKey="JobCode" Type="Position" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PayCalendar" Member="PayCalendars">
+    <Type Name="PayCalendar">
+      <Column Name="PayFrequency" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaxYear" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PayPeriodNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaxYearStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TaxYearEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PayPeriodStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PayPeriodEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PayDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PayProcessDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="PayCalendar_EeDedResult" Member="EeDedResults" ThisKey="PayFrequency,TaxYear,PayPeriodNo" OtherKey="PayFrequency,TaxYear,PayPeriodNo" Type="EeDedResult" />
+      <Association Name="PayCalendar_EeEarnResult" Member="EeEarnResults" ThisKey="PayFrequency,TaxYear,PayPeriodNo" OtherKey="PayFrequency,TaxYear,PayPeriodNo" Type="EeEarnResult" />
+      <Association Name="PayCalendar_EeTaxResult" Member="EeTaxResults" ThisKey="PayFrequency,TaxYear,PayPeriodNo" OtherKey="PayFrequency,TaxYear,PayPeriodNo" Type="EeTaxResult" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Position" Member="Positions">
+    <Type Name="Position">
+      <Column Name="BuCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="JobCode" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PosnId" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PosnTitle" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PosnStartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PosnEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PosnStatusCode" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Position_Appointment" Member="Appointments" ThisKey="BuCode,JobCode,PosnId" OtherKey="BuCode,JobCode,PosnId" Type="Appointment" />
+      <Association Name="BusinessUnit_Position" Member="BusinessUnit" ThisKey="BuCode" OtherKey="BuCode" Type="BusinessUnit" IsForeignKey="true" />
+      <Association Name="Job_Position" Member="Job" ThisKey="JobCode" OtherKey="JobCode" Type="Job" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

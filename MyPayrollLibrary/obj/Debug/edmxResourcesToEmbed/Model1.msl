@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="DB_HDModelStoreContainer" CdmEntityContainer="DB_HDEntities">
+    <EntitySetMapping Name="Employers">
+      <EntityTypeMapping TypeName="DB_HDModel.Employer">
+        <MappingFragment StoreEntitySet="Employer">
+          <ScalarProperty Name="EmployerCode" ColumnName="EmployerCode" />
+          <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+          <ScalarProperty Name="ErStartDate" ColumnName="ErStartDate" />
+          <ScalarProperty Name="ErEndDate" ColumnName="ErEndDate" />
+          <ScalarProperty Name="ErAddLn1" ColumnName="ErAddLn1" />
+          <ScalarProperty Name="ErAddLn2" ColumnName="ErAddLn2" />
+          <ScalarProperty Name="ErAddLn3" ColumnName="ErAddLn3" />
+          <ScalarProperty Name="ErTown" ColumnName="ErTown" />
+          <ScalarProperty Name="ErState" ColumnName="ErState" />
+          <ScalarProperty Name="ErCountry" ColumnName="ErCountry" />
+          <ScalarProperty Name="ErPostCode" ColumnName="ErPostCode" />
+          <ScalarProperty Name="ErPhone" ColumnName="ErPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
